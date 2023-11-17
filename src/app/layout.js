@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        
         {children}
         <Footer />
         <p className='copyright'>Clone coded by Sani Developement and all rights preserved for kokkari.com</p>

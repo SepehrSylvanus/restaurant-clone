@@ -1,28 +1,56 @@
-.container{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 2em auto;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
 }
-.imgContainer{
+.imgContainer {
   position: relative;
- width: 350px;
- height: 100px;
- margin-bottom: 2em;
+  width: 350px;
+  height: 100px;
+  margin-bottom: 2em;
 }
-.navLinks{
+.navLinks {
   display: flex;
   gap: 45px;
-  
 }
-.navLinks a{
+.navLinks a,
+.navLinksResponsive a {
   text-decoration: none;
   color: #333333;
   font-size: 20px;
   font-weight: 400;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
 }
-.navLinks a:hover{
+.navLinks a:hover,
+.navLinksResponsive a:hover {
   color: #6d4412;
+}
+.responsiveMenu{
+  display: flex;
+  flex-direction: row-reverse;
+ gap: .5em;
+}
+
+.navLinksResponsive{
+  gap: 10px;
+}
+
+@media screen and (max-width: 760px) {
+  .navLinks {
+    display: none;
+  }
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 1.8em;
+    margin: 0;
+  }
+  .imgContainer {
+    width: 200px;
+    height: 58px;
+    margin: 0;
+  }
 }
