@@ -1,0 +1,28 @@
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 2em auto;
+}
+.imgContainer{
+  position: relative;
+ width: 350px;
+ height: 100px;
+ margin-bottom: 2em;
+}
+.navLinks{
+  display: flex;
+  gap: 45px;
+  
+}
+.navLinks a{
+  text-decoration: none;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 400;
+  transition: .2s all ease;
+}
+.navLinks a:hover{
+  color: #6d4412;
+}
