@@ -1,3 +1,80 @@
 .container{
+  padding: 0 1.8em;
+}
+.mainContainer{
+padding: 0 10.6em;
+
+}
+.aboutHotel{
+  display: flex;
+  gap: 4em;
+}
+.imgContainer{
+  height: 288px;
+  width: 432px;
+  position: relative;
+}
+.img{
+  position: absolute;
+  object-fit: cover;
+}
+.divider{
+  margin: 2.5em 0;
+}
+.address{
+  border: 2px solid black;
+}
+.paulImgContainer{
+  height: 449px;
+  width: 300px;
+  position: relative;
+}
+.aboutSeo{
+  display: flex;
+  justify-content: space-between;
+  gap: 3em;
+}
+.eachRole{
+  position: relative;
+  float: left;
   
+}
+.paulImgContainer{
+ display: inline;
+ float: left;
+ margin-right: 1em;
+}
+.hotelNamesAndAddress{
+  flex: 2;
+}
+.aboutEachOne{
+  flex: 3;
+}
+.roleLinks{
+  color: #6d4412;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 1.25em 0;
+  line-height: 1.2;
+}
+.address{
+  padding: 28px;
+  text-align: center;
+}
+.roles{
+  display: grid;
+  grid-template-columns: auto auto; /* Two columns */
+  grid-template-rows: repeat(11, auto); /* Eleven rows */
+justify-content: center;
+column-gap: 1em;
+row-gap: .4em;
+margin-top: 7em;
+}
+.roles > *:nth-child(odd){
+  font-weight: bold;
+}
+.rolaNameLinks{
+  color: #6d4412;
+  text-decoration: none;
+  font-family:Arial, Helvetica, sans-serif ;
 }

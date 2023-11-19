@@ -28,7 +28,7 @@
   color: #6d4412;
 }
 .responsiveMenu{
-  display: flex;
+  display: none;
   flex-direction: row-reverse;
  gap: .5em;
 }
@@ -52,5 +52,8 @@
     width: 200px;
     height: 58px;
     margin: 0;
+  }
+  .responsiveMenu{
+    display: flex;
   }
 }
