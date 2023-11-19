@@ -4,7 +4,10 @@
   justify-content: center;
   align-items: center;
   margin: 2em auto;
+  z-index: 3;
+  position: relative;
 }
+
 .imgContainer {
   position: relative;
   width: 350px;
@@ -27,14 +30,26 @@
 .navLinksResponsive a:hover {
   color: #6d4412;
 }
-.responsiveMenu{
+.responsiveMenu {
   display: none;
   flex-direction: row-reverse;
- gap: .5em;
+  gap: 0.5em;
 }
 
-.navLinksResponsive{
+.navLinksResponsive {
   gap: 10px;
+  flex-direction: column;
+  text-align: right;
+
+  position: absolute;
+  top: 2em;
+  right: 0;
+  border-radius: 10px;
+  padding: 1em;
+
+  background-color: #f2f2f2;
+  transition: .3 all;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 760px) {
@@ -53,7 +68,18 @@
     height: 58px;
     margin: 0;
   }
-  .responsiveMenu{
+  .responsiveMenu {
     display: flex;
+    position: relative;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
