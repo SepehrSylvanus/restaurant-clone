@@ -1,0 +1,123 @@
+import React from "react";
+import styles from "./cuisine.module.css";
+import Navbar from "../components/navbar/Navbar";
+import Image from "next/image";
+const Cuisine = () => {
+  return (
+    <div className={styles.container}>
+      <Navbar />
+      <div className={styles.mainContainer}>
+        <h1>Kouzina — κουζίνα</h1>
+        <hr className={styles.responsiveDivider} />
+        <hr className={styles.responsiveDivider} style={{marginBottom: '1em'}}/>
+
+        <div className={styles.aboutCuisine}>
+          <div className={styles.textContainer}>
+            <hr className={styles.bigDivider} />
+            <hr
+              className={styles.bigDivider}
+              style={{ marginBottom: "30px" }}
+            />
+
+            <p>
+              Although we operate in San Francisco and draw on the bounty of
+              Northern California, we owe our culinary aesthetic to Greece,
+              where diners take more pleasure in quality ingredients than in
+              artful embellishment.
+            </p>
+
+            <p>
+              We have modernized many Greek dishes while staying true to the
+              signature tastes of the Greek table, respecting the pure flavors
+              of sweet baby lamb, tangy homemade yogurt, and the woodsy scent of
+              wild oregano.{" "}
+            </p>
+
+            <p>
+              While Greece is a country with dramatically varied landscapes and
+              widely dispersed archipelagos, there is a singularly Greek flavor
+              palette, a collection of ingredients and preparation, that define
+              what we do at the Kokkari.
+            </p>
+
+            <p>
+              The appetizing aroma of wood smoke, coming from our open hearth,
+              charcoal grill, and wood-fired oven, perfumes our dishes and
+              enhances the of warmth of family and friends.
+            </p>
+            <p>
+              Our menu, showcasing seafood and game, features many of the most
+              sought-after traditional Aegean dishes, as well as selections
+              which have been modernized through the innovative blending of
+              cultures and techniques. Horiatiki, the classic Greek salad is
+              offered along side the Maroulosalata, a version of the chopped
+              salad with a creamy feta dressing, pine nuts and Kalamata olives.
+              Tender grilled octopus is garnished with lemon juice and olive
+              oil; a classic Greek preparation, while calamari is stuffed with
+              feta, fennel and orange; a more modern combination. Lamb chops are
+              served straight from the mesquite grill with hints of garlic,
+              oregano and lemon juice. While traditional soutzoukakia, or lamb
+              meatballs, are enlivened with a hint of cumin and tangy Greek
+              yogurt.{" "}
+            </p>
+          </div>
+          <div className={styles.images}>
+            <div className={styles.imgContainer}>
+              <Image src={"/lamb.jpg"} fill className={styles.img} />
+            </div>
+            <div className={styles.imgContainer}>
+              <Image src={"/olives.jpg"} fill className={styles.img} />
+            </div>
+          </div>
+        </div>
+        <div className={styles.cuisines}>
+          <div className={styles.eachCuisine}>
+            <div className={styles.eachCuisineImageContainer}>
+              <Image
+                src={"/olive-oil.jpg"}
+                alt="oliveOil"
+                fill
+                className={styles.img}
+              />
+            </div>
+            <h3 style={{ margin: "1.25em 0" }}>Olive Oil For Aroma And Body</h3>
+            <p style={{ padding: "0 .6em 0 1.25em " }}>
+              Olive oil is more than just a cooking medium in the Kokkari
+              kitchen. Its the foundation on which almost every savory dish
+              rests. Used liberally, olive oil adds a silky body and lush
+              richness to braised dishes and greens.{" "}
+            </p>
+          </div>
+          <div className={styles.eachCuisine}>
+            <div className={styles.eachCuisineImageContainer}>
+              <Image
+                src={"/keftedes.jpg"}
+                alt="oliveOil"
+                fill
+                className={styles.img}
+              />
+              <h3 style={{ margin: "1.25em 0" }}>
+                Olive Oil For Aroma And Body
+              </h3>
+              <p style={{ padding: "0 .6em 0 1.25em " }}>
+                Olive oil is more than just a cooking medium in the Kokkari
+                kitchen. Its the foundation on which almost every savory dish
+                rests. Used liberally, olive oil adds a silky body and lush
+                richness to braised dishes and greens.{" "}
+              </p>
+            </div>
+            <h3 style={{ margin: "1.25em 0" }}>Olive Oil For Aroma And Body</h3>
+            <p style={{ padding: "0 .6em 0 1.25em " }}>
+              Olive oil is more than just a cooking medium in the Kokkari
+              kitchen. Its the foundation on which almost every savory dish
+              rests. Used liberally, olive oil adds a silky body and lush
+              richness to braised dishes and greens.{" "}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Cuisine;
