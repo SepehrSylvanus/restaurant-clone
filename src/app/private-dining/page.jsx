@@ -11,6 +11,9 @@ const PrivateDining = () => {
         <h1>Private Dining and Special Events</h1>
         <div className={styles.eachTable}>
           <h3>Chef’s Table</h3>
+          <hr className={styles.responsiveDivider} />
+        <hr className={styles.responsiveDivider} style={{marginBottom: '1em'}}/>
+
           <div className={styles.eachTableContents}>
             <div className={styles.textContainer}>
               <hr className={styles.bigDivider} />

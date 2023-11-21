@@ -43,3 +43,30 @@ gap: 1.5em;
   color: #844e02;
   font-family: 'PT Sans Narrow', sans-serif;
 }
+.responsiveDivider{
+  display: none;
+}
+@media screen and (max-width: 760px) {
+  .mainContainer{
+    padding: 0 1em;
+  }
+  .responsiveDivider{
+    display: block;
+  }
+  .bigDivider{
+    display: none;
+  }
+  .eachTableContents{
+    flex-direction: column;
+    justify-content: center;
+  align-items: center;
+  }
+.imgContainer{
+  flex: unset;
+}
+.textContainer{
+  flex: unset;
+  text-align: center;
+}
+ 
+}

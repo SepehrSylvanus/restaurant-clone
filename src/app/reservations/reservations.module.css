@@ -84,12 +84,6 @@
   .reservationssContainer{
     flex-direction: column;
   }
-  .imgContainer{
-    width: 100%;
-    height: 700px;
-   
-  }
- .cuisines{
- grid-template-columns: repeat(1, 1fr);
- }
+  
+ 
 }
