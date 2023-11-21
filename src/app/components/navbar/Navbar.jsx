@@ -8,7 +8,13 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 const Navbar = () => {
   const [path, setPath] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [dropOpen, setDropOpen] = useState(false);
+  const openDrop = () => {
+    setDropOpen(true);
+  };
+  const closeDrop = () => {
+    setDropOpen(false);
+  };
 
   useEffect(() => {
     const changeLink = () => {
@@ -48,12 +54,21 @@ const Navbar = () => {
         >
           Cuisine
         </Link>
-        <Link
-          href={"/menus"}
+        <div
+        className={styles.menuDropDown}
           style={path === "menus" ? { color: "#6d4412" } : { color: "#333333" }}
+          onMouseOver={openDrop}
+          onMouseLeave={closeDrop}
         >
           Menus
-        </Link>
+          <div style={ dropOpen ? {display: 'flex'} : {display: 'none'} } className={styles.dropDownMenu} onMouseLeave={closeDrop}>
+            <Link href={"/"}>lunch menu</Link>
+            <hr />
+            <Link href={"/"}>Dinner menu</Link>
+            <hr />
+            <Link href={"/"}>wine list</Link>
+          </div>
+        </div>
         <Link
           href={"/reservations"}
           style={

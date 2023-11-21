@@ -20,7 +20,7 @@ const Footer = () => {
           <Link href={"/"}>evvia</Link>
         </div>
 
-        <div className={styles.middleFooter}>
+        <div className={styles.middleFooter} >
           <p >
             KOKKARI ESTIATORIO
             <br />
