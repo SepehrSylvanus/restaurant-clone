@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.linksContainer}>
-        <Link href={"/"}>Press Room</Link>
+        <Link href={"/press"}>Press Room</Link>
         <Link href={"/"}>
           Gift certificates
           <br />& cookbook
         </Link>
-        <Link href={"/"}>Contact</Link>
+        <Link href={"/about/#about"}>Contact</Link>
       </div>
 
       <div className={styles.footerDownContainer}>

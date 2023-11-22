@@ -54,7 +54,7 @@ const AboutPage = () => {
           <hr />
         </div>
         <div className={styles.aboutSeo}>
-          <div className={styles.hotelNamesAndAddress}>
+          <div id="about" className={styles.hotelNamesAndAddress}>
             <div className={styles.address}>
               <h3 style={{ marginBottom: "1em" }}>KOKKARI ESTIATORIO</h3>
               <p style={{ marginBottom: "1em", fontWeight: "bold" }}>
