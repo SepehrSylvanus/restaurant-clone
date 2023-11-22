@@ -2,14 +2,43 @@ import React from "react";
 import styles from "./cuisine.module.css";
 import Navbar from "../components/navbar/Navbar";
 import Image from "next/image";
-const Cuisine = () => {
+import useSWR from "swr";
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.messg);
+  }
+  return data;
+};
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/cuisines", {
+    cache: "no-cache",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+
+  return res.json();
+};
+
+const Cuisine = async() => {
+  const data = await getData();
+  //  const {data , isLoading} = useSWR('http://localhost:3000/api/cuisines', fetcher)
+  console.log('data:',data);
   return (
     <div className={styles.container}>
       <Navbar />
       <div className={styles.mainContainer}>
         <h1>Kouzina — κουζίνα</h1>
         <hr className={styles.responsiveDivider} />
-        <hr className={styles.responsiveDivider} style={{marginBottom: '1em'}}/>
+        <hr
+          className={styles.responsiveDivider}
+          style={{ marginBottom: "1em" }}
+        />
 
         <div className={styles.aboutCuisine}>
           <div className={styles.textContainer}>
@@ -71,49 +100,23 @@ const Cuisine = () => {
           </div>
         </div>
         <div className={styles.cuisines}>
-          <div className={styles.eachCuisine}>
-            <div className={styles.eachCuisineImageContainer}>
-              <Image
-                src={"/olive-oil.jpg"}
-                alt="oliveOil"
-                fill
-                className={styles.img}
-              />
-            </div>
-            <h3 style={{ margin: "1.25em 0" }}>Olive Oil For Aroma And Body</h3>
-            <p style={{ padding: "0 .6em 0 1.25em " }}>
-              Olive oil is more than just a cooking medium in the Kokkari
-              kitchen. Its the foundation on which almost every savory dish
-              rests. Used liberally, olive oil adds a silky body and lush
-              richness to braised dishes and greens.{" "}
-            </p>
-          </div>
-          <div className={styles.eachCuisine}>
-            <div className={styles.eachCuisineImageContainer}>
-              <Image
-                src={"/keftedes.jpg"}
-                alt="oliveOil"
-                fill
-                className={styles.img}
-              />
-              <h3 style={{ margin: "1.25em 0" }}>
-                Olive Oil For Aroma And Body
-              </h3>
-              <p style={{ padding: "0 .6em 0 1.25em " }}>
-                Olive oil is more than just a cooking medium in the Kokkari
-                kitchen. Its the foundation on which almost every savory dish
-                rests. Used liberally, olive oil adds a silky body and lush
-                richness to braised dishes and greens.{" "}
-              </p>
-            </div>
-            <h3 style={{ margin: "1.25em 0" }}>Olive Oil For Aroma And Body</h3>
-            <p style={{ padding: "0 .6em 0 1.25em " }}>
-              Olive oil is more than just a cooking medium in the Kokkari
-              kitchen. Its the foundation on which almost every savory dish
-              rests. Used liberally, olive oil adds a silky body and lush
-              richness to braised dishes and greens.{" "}
-            </p>
-          </div>
+       
+       {data.map(item =>(
+           <div className={styles.eachCuisine} key={item.id}>
+           <div className={styles.eachCuisineImageContainer}>
+             <Image
+               src={item.img}
+               alt="oliveOil"
+               fill
+               className={styles.img}
+             />
+           </div>
+           <h3 style={{ margin: "1.25em 0" }}>{item.title}</h3>
+           <p style={{ padding: "0 .6em 0 1.25em " }}>
+            {item.desc}
+           </p>
+         </div>
+       ))}
         </div>
       </div>
     </div>
