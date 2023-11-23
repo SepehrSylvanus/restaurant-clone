@@ -3,43 +3,52 @@ import styles from "./private-dining.module.css";
 import Image from "next/image";
 import Navbar from "../components/navbar/Navbar";
 import Link from "next/link";
-const PrivateDining = () => {
+
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/table");
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+
+  return res.json();
+};
+const PrivateDining = async() => {
+  const data = await getData()
   return (
     <div className={styles.container}>
       <Navbar />
       <div className={styles.mainContainer}>
         <h1>Private Dining and Special Events</h1>
-        <div className={styles.eachTable}>
-          <h3>Chef’s Table</h3>
-          <hr className={styles.responsiveDivider} />
-        <hr className={styles.responsiveDivider} style={{marginBottom: '1em'}}/>
+       {data.map(item=>(
+         <div className={styles.eachTable} key={item.id}>
+         <h3>{item.title}</h3>
+         <hr className={styles.responsiveDivider} />
+       <hr className={styles.responsiveDivider} style={{marginBottom: '1em'}}/>
 
-          <div className={styles.eachTableContents}>
-            <div className={styles.textContainer}>
-              <hr className={styles.bigDivider} />
-              <hr
-                className={styles.bigDivider}
-                style={{ marginBottom: "5px" }}
-              />
+         <div className={styles.eachTableContents}>
+           <div className={styles.textContainer}>
+             <hr className={styles.bigDivider} />
+             <hr
+               className={styles.bigDivider}
+               style={{ marginBottom: "5px" }}
+             />
 
-              <p>
-                The focal point of the Kouzina is the Chef’s Table. It is a
-                beautiful 20 foot long hand-carved wooden table that can
-                accommodate up to 20 people. This space is ideal for
-                celebrations, special family events and casual business
-                functions that do not require a completely private space.
-              </p>
-            </div>
-            <div className={styles.imgContainer}>
-              <Image
-                src={"/chef-table.jpg"}
-                alt=""
-                fill
-                className={styles.img}
-              />
-            </div>
-          </div>
-        </div>
+             <p>
+              {item.desc}
+             </p>
+           </div>
+           <div className={styles.imgContainer}>
+             <Image
+               src={item.img}
+               alt=""
+               fill
+               className={styles.img}
+             />
+           </div>
+         </div>
+       </div>
+       ))}
         <div className={styles.diningInformation}>
           <h2>Further Group Dining Information</h2>
           <p style={{marginBottom: '1.5em'}}>

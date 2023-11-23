@@ -14,9 +14,7 @@ const fetcher = async (url) => {
   return data;
 };
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/cuisines", {
-    cache: "no-cache",
-  });
+  const res = await fetch("http://localhost:3000/api/cuisines");
 
   if (!res.ok) {
     throw new Error("Failed");

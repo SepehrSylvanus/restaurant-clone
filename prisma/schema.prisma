@@ -25,9 +25,10 @@ model Table {
 }
 
 model Press {
-  id    String @id @default(cuid()) @map("_id")
-  img   String
-  title String
-  desc  String
-  link  String
+  id       String @id @default(cuid()) @map("_id")
+  img      String
+  title    String
+  subtitle String
+  desc     String
+  link     String
 }
