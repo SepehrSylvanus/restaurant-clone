@@ -6,7 +6,7 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.linksContainer}>
         <Link href={"/press"}>Press Room</Link>
-        <Link href={"/"}>
+        <Link href={"/cookbook"}>
           Gift certificates
           <br />& cookbook
         </Link>
