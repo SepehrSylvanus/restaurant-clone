@@ -369,7 +369,7 @@ const Cookbook = () => {
                         <option value="Curaçao">Curaçao</option>
                         <option value="Cyprus">Cyprus</option>
                         <option value="Czechia">Czechia</option>
-                        <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                        
                         <option value="Denmark">Denmark</option>
                         <option value="Djibouti">Djibouti</option>
                         <option value="Dominica">Dominica</option>
@@ -440,17 +440,13 @@ const Cookbook = () => {
                         <option value="Kazakhstan">Kazakhstan</option>
                         <option value="Kenya">Kenya</option>
                         <option value="Kiribati">Kiribati</option>
-                        <option value="Korea, Democratic People's Republic of">
-                          Korea, Democratic People's Republic of
-                        </option>
+                       
                         <option value="Korea, Republic of">
                           Korea, Republic of
                         </option>
                         <option value="Kuwait">Kuwait</option>
                         <option value="Kyrgyzstan">Kyrgyzstan</option>
-                        <option value="Lao People's Democratic Republic">
-                          Lao People's Democratic Republic
-                        </option>
+                      
                         <option value="Latvia">Latvia</option>
                         <option value="Lebanon">Lebanon</option>
                         <option value="Lesotho">Lesotho</option>
