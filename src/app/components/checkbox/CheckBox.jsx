@@ -1,9 +1,9 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
-const CheckBox = () => {
+const CheckBox = ({checked}) => {
   return (
     <div>
-      <Checkbox/>
+      <Checkbox checked={checked}/>
     </div>
   )
 }
