@@ -5,7 +5,7 @@ import Navbar from "../components/navbar/Navbar";
 import Link from "next/link";
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/table");
+  const res = await fetch(`${process.env.BASE}/api/table`);
 
   if (!res.ok) {
     throw new Error("Failed");

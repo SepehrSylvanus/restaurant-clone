@@ -38,7 +38,7 @@ const Cookbook = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/create-intent", {
+        const res = await fetch(`${process.env.BASE}/api/create-intent`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: total,
