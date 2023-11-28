@@ -4,7 +4,7 @@ import Navbar from '../components/navbar/Navbar'
 
 import Link from 'next/link'
 const getData = async () => {
-  const res = await fetch(`${process.env.BASE}/api/press`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/press`);
 
   if (!res.ok) {
     throw new Error("Failed");
