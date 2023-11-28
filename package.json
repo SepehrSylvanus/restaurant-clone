@@ -21,6 +21,7 @@
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.2.0",
     "@tanstack/react-query": "^5.8.4",
+    "cors": "^2.8.5",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
