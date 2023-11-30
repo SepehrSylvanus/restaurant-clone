@@ -2,17 +2,7 @@ import React from "react";
 import styles from "./cuisine.module.css";
 import Navbar from "../components/navbar/Navbar";
 import Image from "next/image";
-import useSWR from "swr";
-const fetcher = async (url) => {
-  const res = await fetch(url);
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    const error = new Error(data.messg);
-  }
-  return data;
-};
 const getData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`);
 
@@ -25,7 +15,6 @@ const getData = async () => {
 
 const Cuisine = async() => {
   const data = await getData();
-  //  const {data , isLoading} = useSWR('http://localhost:3000/api/cuisines', fetcher)
   console.log('data:',data);
   return (
     <div className={styles.container}>
