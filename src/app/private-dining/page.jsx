@@ -2,18 +2,36 @@ import styles from "./private-dining.module.css";
 import Image from "next/image";
 import Navbar from "../components/navbar/Navbar";
 import Link from "next/link";
+import useSWR from "swr";
+// const getData = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/table`);
 
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/table`);
+//   if (!res.ok) {
+//     throw new Error("Failed");
+//   }
+
+//   return res.json();
+// };
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
 
   if (!res.ok) {
-    throw new Error("Failed");
+    const error = new Error(data.message);
+    throw error;
   }
 
-  return res.json();
+  return data;
 };
 const PrivateDining = async() => {
-  const data = await getData()
+  const { data, mutate, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/table`,
+    fetcher
+  );
+
+ 
   return (
     <div className={styles.container}>
       <Navbar />
