@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './press.module.css'
 import Navbar from '../components/navbar/Navbar'
 

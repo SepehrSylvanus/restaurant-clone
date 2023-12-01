@@ -1,4 +1,4 @@
-import React from "react";
+
 import styles from "./cuisine.module.css";
 import Navbar from "../components/navbar/Navbar";
 import Image from "next/image";

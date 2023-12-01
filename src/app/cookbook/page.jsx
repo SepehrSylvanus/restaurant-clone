@@ -7,12 +7,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CheckBox from "../components/checkbox/CheckBox";
 import Textarea from "../components/textarea/Textarea";
 import { Divider } from "@mui/material";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements, PaymentElement } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+
 
 const Cookbook = () => {
   // STATES
