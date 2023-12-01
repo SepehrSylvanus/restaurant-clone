@@ -1,20 +1,38 @@
-
+'use client'
 import styles from "./cuisine.module.css";
 import Navbar from "../components/navbar/Navbar";
 import Image from "next/image";
+import useSWR from "swr";
 
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`);
+// const getData = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`);
 
+//   if (!res.ok) {
+//     throw new Error("Failed");
+//   }
+
+//   return res.json();
+// };
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  
   if (!res.ok) {
-    throw new Error("Failed");
+    const error = new Error(data.message);
+    throw error;
   }
 
-  return res.json();
+  return data;
 };
 
-const Cuisine = async() => {
-  const data = await getData();
+const Cuisine = () => {
+  const { data, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`,
+    fetcher
+  );
   console.log('data:',data);
   return (
     <div className={styles.container}>
@@ -88,7 +106,7 @@ const Cuisine = async() => {
         </div>
         <div className={styles.cuisines}>
        
-       {data.map(item =>(
+       {isLoading? "Loading" : data?.map(item =>(
            <div className={styles.eachCuisine} key={item.id}>
            <div className={styles.eachCuisineImageContainer}>
              <Image
