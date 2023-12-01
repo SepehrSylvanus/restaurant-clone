@@ -1,23 +1,32 @@
+"use client"
 import styles from './press.module.css'
 import Navbar from '../components/navbar/Navbar'
 
 import Link from 'next/link'
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/press`);
+import useSWR from 'swr';
+const fetcher = async (url) => {
+  const res = await fetch(url);
 
+  const data = await res.json();
+
+  
   if (!res.ok) {
-    throw new Error("Failed");
+    const error = new Error(data.message);
+    throw error;
   }
 
-  return res.json();
+  return data;
 };
-const Press =async () => {
-  const data = await getData()
+const Press = () => {
+  const { data, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/press`,
+    fetcher
+  );
   return (
     <div className={styles.container}>
       <Navbar/>
       <div className={styles.mainContainer}>
-      {data.map(item=>(
+      {isLoading ? "Loading" : data?.map(item=>(
           <div className={styles.eachPress} key={item.id}>
           <div className={styles.imgContainer}>
            <img src={item.img} alt="" className={styles.img}/>
