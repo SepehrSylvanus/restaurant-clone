@@ -4,6 +4,7 @@ import Navbar from '../components/navbar/Navbar'
 
 import Link from 'next/link'
 import useSWR from 'swr';
+import { Press } from "../../type";
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -18,10 +19,11 @@ const fetcher = async (url) => {
   return data;
 };
 const Press = () => {
-  const { data, isLoading } = useSWR(
+  const { data, isLoading } = useSWR<Press[]>(
     `${process.env.NEXT_PUBLIC_API_URL}/api/press`,
     fetcher
   );
+  console.log('press data:', data)
   return (
     <div className={styles.container}>
       <Navbar/>

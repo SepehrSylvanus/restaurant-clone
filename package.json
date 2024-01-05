@@ -27,7 +27,8 @@
     "react-dom": "^18",
     "redux": "^4.2.1",
     "stripe": "^14.5.0",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "^8",

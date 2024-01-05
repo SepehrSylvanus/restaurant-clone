@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar/Navbar";
 import Link from "next/link";
 import useSWR from "swr";
+import { Cuisines } from "../../type";
 // const getData = async () => {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/table`);
 
@@ -28,7 +29,7 @@ const fetcher = async (url) => {
   return data;
 };
 const PrivateDining = () => {
-  const { data, isLoading } = useSWR(
+  const { data, isLoading } = useSWR<Cuisines[]>(
     `${process.env.NEXT_PUBLIC_API_URL}/api/table`,
     fetcher
   );

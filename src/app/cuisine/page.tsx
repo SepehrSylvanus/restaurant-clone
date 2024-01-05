@@ -3,6 +3,7 @@ import styles from "./cuisine.module.css";
 import Navbar from "../components/navbar/Navbar";
 import Image from "next/image";
 import useSWR from "swr";
+import { Cuisines } from "../../type";
 
 // const getData = async () => {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`);
@@ -29,7 +30,7 @@ const fetcher = async (url) => {
 };
 
 const Cuisine = () => {
-  const { data, isLoading } = useSWR(
+  const { data, isLoading } = useSWR<Cuisines[]>(
     `${process.env.NEXT_PUBLIC_API_URL}/api/cuisines`,
     fetcher
   );
@@ -97,10 +98,10 @@ const Cuisine = () => {
           </div>
           <div className={styles.images}>
             <div className={styles.imgContainer}>
-              <Image src={"/lamb.jpg"} fill className={styles.img} />
+              <Image src={"/lamb.jpg"} alt="" fill className={styles.img} />
             </div>
             <div className={styles.imgContainer}>
-              <Image src={"/olives.jpg"} fill className={styles.img} />
+              <Image src={"/olives.jpg"} alt="" fill className={styles.img} />
             </div>
           </div>
         </div>
